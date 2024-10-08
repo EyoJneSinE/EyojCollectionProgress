@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "EyojCollectionProgress"
 include(":app")
- 
+include(":eyojointostringcollection")
