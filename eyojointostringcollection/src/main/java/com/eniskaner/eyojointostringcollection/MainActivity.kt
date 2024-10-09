@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         useButtonJoinToString()
         useButtonFlatMap()
         useButtonMap()
+        useButtonMapWithFlatten()
     }
 
     private fun useButtonJoinToString() = with(binding) {
@@ -53,6 +54,16 @@ class MainActivity : AppCompatActivity() {
         genresList.addAll(genreList)
         bMap.setOnClickListener {
             tvMain.text = genres.map { it.genres }.toString()
+        }
+    }
+
+    private fun useButtonMapWithFlatten() = with(binding) {
+        val genreList = listOf("Action", "Comedy", "Drama", "Action", "Comedy")
+        val genreList2 = listOf("ac", "co", "dr", "sci", "cr")
+        val genres : List<GenreUIModel> = listOf(GenreUIModel(genreList), GenreUIModel(genreList2) )
+        genresList.addAll(genreList)
+        bMapWithFlatten.setOnClickListener {
+            tvMain.text = genres.map { it.genres }.flatten().toString()
         }
     }
 

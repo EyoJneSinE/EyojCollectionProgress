@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/rubik_light"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -51,5 +51,16 @@
         app:layout_constraintEnd_toEndOf="@+id/b_flat_map"
         app:layout_constraintStart_toStartOf="@+id/b_flat_map"
         app:layout_constraintTop_toBottomOf="@+id/b_flat_map" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/b_map_with_flatten"
+        style="@style/Widget.App.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Use map"
+        app:layout_constraintEnd_toEndOf="@+id/b_map"
+        app:layout_constraintStart_toStartOf="@+id/b_map"
+        app:layout_constraintTop_toBottomOf="@+id/b_map" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
