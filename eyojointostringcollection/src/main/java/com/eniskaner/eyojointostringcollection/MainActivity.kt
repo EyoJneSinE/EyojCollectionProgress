@@ -67,6 +67,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun useButtonForEach() = with(binding) {
+        val genreList = listOf("Action", "Comedy", "Drama", "Action", "Comedy")
+        bForEach.setOnClickListener {
+            genreList.forEach {
+                tvMain.text = it
+            }
+        }
+    }
+
     fun getData() {
         val genreList = listOf("Action", "Comedy", "Drama", "Action", "Comedy")
         val genreList2 = listOf("ac", "co", "dr", "sci", "cr")
