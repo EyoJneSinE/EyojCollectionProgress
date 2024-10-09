@@ -23,106 +23,65 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        useButtonJoinToString()
+        binding.tvMain.text = "You will see the change when you use button"
         useButtonFlatMap()
         useButtonMap()
         useButtonMapWithFlatten()
-    }
-
-    private fun useButtonJoinToString() = with(binding) {
-        val genreList = listOf("Action", "Comedy", "Drama", "Action", "Comedy")
-        genresList.addAll(genreList)
-        bJoinToString.setOnClickListener {
-            tvMain.text = genresList.joinToString(", ")
-        }
+        useButtonForEach()
+        useButtonJoinToString()
+        useButtonJoinToStringWithDistinct()
     }
 
     private fun useButtonFlatMap() = with(binding) {
         val genreList = listOf("Action", "Comedy", "Drama", "Action", "Comedy")
         val genreList2 = listOf("ac", "co", "dr", "sci", "cr")
-        val genres : List<GenreUIModel> = listOf(GenreUIModel(genreList), GenreUIModel(genreList2) )
-        genresList.addAll(genreList)
+        val genresForFlatMap : List<GenreUIModel> = listOf(GenreUIModel(genreList), GenreUIModel(genreList2) )
         bFlatMap.setOnClickListener {
-            tvMain.text = genres.flatMap { it.genres }.toString()
+            tvMain.text = genresForFlatMap.flatMap { it.genres }.toString()
         }
     }
 
     private fun useButtonMap() = with(binding) {
         val genreList = listOf("Action", "Comedy", "Drama", "Action", "Comedy")
         val genreList2 = listOf("ac", "co", "dr", "sci", "cr")
-        val genres : List<GenreUIModel> = listOf(GenreUIModel(genreList), GenreUIModel(genreList2) )
-        genresList.addAll(genreList)
+        val genresForMap : List<GenreUIModel> = listOf(GenreUIModel(genreList), GenreUIModel(genreList2) )
         bMap.setOnClickListener {
-            tvMain.text = genres.map { it.genres }.toString()
+            tvMain.text = genresForMap.map { it.genres }.toString()
         }
     }
 
     private fun useButtonMapWithFlatten() = with(binding) {
         val genreList = listOf("Action", "Comedy", "Drama", "Action", "Comedy")
         val genreList2 = listOf("ac", "co", "dr", "sci", "cr")
-        val genres : List<GenreUIModel> = listOf(GenreUIModel(genreList), GenreUIModel(genreList2) )
-        genresList.addAll(genreList)
+        val genresForMapWithFlatten : List<GenreUIModel> = listOf(GenreUIModel(genreList), GenreUIModel(genreList2) )
         bMapWithFlatten.setOnClickListener {
-            tvMain.text = genres.map { it.genres }.flatten().toString()
+            tvMain.text = genresForMapWithFlatten.map { it.genres }.flatten().toString()
         }
     }
 
     private fun useButtonForEach() = with(binding) {
-        val genreList = listOf("Action", "Comedy", "Drama", "Action", "Comedy")
+        val genreListForEach = listOf("Action", "Comedy", "Drama", "Action", "Comedy")
         bForEach.setOnClickListener {
-            genreList.forEach {
-                tvMain.text = it
+            val genre = buildString {
+                genreListForEach.forEach {
+                    append(it.plus(", "))
+                }
             }
+            tvMain.text = genre
         }
     }
 
-    fun getData() {
-        val genreList = listOf("Action", "Comedy", "Drama", "Action", "Comedy")
-        val genreList2 = listOf("ac", "co", "dr", "sci", "cr")
-        genresList.addAll(genreList)
-
-        val genres : List<GenreUIModel> = listOf(GenreUIModel(genreList), GenreUIModel(genreList2) )
-
-        println("Just Print genres list")
-        println(genres)
-        println()
-
-        println("print genres in genres list")
-        println(genres.map { it.genres })
-        println()
-
-        println("print genres in genres list with map and flatten")
-        println(genres.map { it.genres }.flatten())
-        println()
-
-        println("print genres in genres list with flatMap")
-        println(genres.flatMap { it.genres })
-        println()
-
-        println("print genres in genres list")
-        println(genres.map { it.genres })
-        println()
-
-        val genre = GenreUIModel(genreList)
-        val genreName = genreList.map {
-            it
+    private fun useButtonJoinToString() = with(binding) {
+        val genreListForJoinToString = listOf("Action", "Comedy", "Drama", "Action", "Comedy")
+        bJoinToString.setOnClickListener {
+            tvMain.text = genreListForJoinToString.joinToString(", ")
         }
+    }
 
-        println("print genre list")
-        println(genre.genres)
-        println()
-
-        println("print genre list with distinct")
-        println(genre.genres.distinct())
-        println()
-
-        println("print genre name with forEach")
-        genreName.forEach { println(it) }
-        println()
-
-        println("print genre list with joinToString")
-        println(genre.genres.joinToString(", "))
-        println()
-
+    private fun useButtonJoinToStringWithDistinct() = with(binding) {
+        val genreListForJoinToStringWithDistinct = listOf("Action", "Comedy", "Drama", "Action", "Comedy")
+        bJoinToStringWithDistinct.setOnClickListener {
+            tvMain.text = genreListForJoinToStringWithDistinct.distinct().joinToString(", ")
+        }
     }
 }
