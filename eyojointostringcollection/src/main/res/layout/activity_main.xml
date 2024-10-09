@@ -41,4 +41,15 @@
         app:layout_constraintStart_toStartOf="@+id/b_join_to_string"
         app:layout_constraintTop_toBottomOf="@+id/b_join_to_string" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/b_map"
+        style="@style/Widget.App.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Use map"
+        app:layout_constraintEnd_toEndOf="@+id/b_flat_map"
+        app:layout_constraintStart_toStartOf="@+id/b_flat_map"
+        app:layout_constraintTop_toBottomOf="@+id/b_flat_map" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
